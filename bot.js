@@ -115,17 +115,15 @@ client.on('message', function (message) {
       return;
     }
 
-    if (message.guild.member(message.author.id).roles.find(roles => roles.name === role)) {
-      message.reply('stopping the music...');
+   // if (message.guild.member(message.author.id).roles.find(roles => roles.name === role)) 
+      message.reply('stopping the music...'); {
 
       guilds[message.guild.id].queue = [];
       guilds[message.guild.id].queueNames = [];
       guilds[message.guild.id].isPlaying = false;
       guilds[message.guild.id].dispatcher.end();
       guilds[message.guild.id].voiceChannel.leave();
-    } else {
-      message.reply("nice try, but only " + role + "s can stop me!");
-    }
+    } 
 
   } else if (msg.startsWith(prefix + 'history')){
     let defaultTrackCount = 30;
